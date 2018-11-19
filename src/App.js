@@ -33,7 +33,8 @@ class App extends Component {
     }
 
     getColors({ page }) {
-        fetch(`http://localhost:8000/api/colors?resultOffset=${page}`)
+        const url = `${process.env.REACT_APP_API_BASE_URL}/api/colors?resultOffset=${page}`;
+        fetch(url)
             .then(res => res.json())
             .then(json => {
                 this.setState({
